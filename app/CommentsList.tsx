@@ -8,7 +8,7 @@ export default function CommentsList({ messages }: { messages: (MessagesRecord &
             </h2>
             <ul className="list-none mx-auto my-12 flex flex-col items-center gap-8">
                 {messages.map((message) => (
-                    <li key={message.id} className="bg-teal-600 dark:bg-black">
+                    <li key={message.id} className="bg-red-600 dark:bg-black">
                         <p className="text-2xl sm:text-3xl text-left mt-2 text-indigo-700 dark:text-indigo-300 font-bold">{message.subject}</p>
                         <p className="italic text-1xl sm:text-3xl text-left mt-2 text-black dark:text-white">{message.message}</p>
                     </li>
