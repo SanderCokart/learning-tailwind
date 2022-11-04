@@ -20,6 +20,9 @@ export default function generateStarfield(id = 'starfield') {
     };
 
     const loop = (timeNow: number) => {
+        canvas.width = (canvas.parentElement?.clientWidth ?? 500);
+        canvas.height = (canvas.parentElement?.clientHeight ?? 500) + 68;
+
         timeDelta = timeNow - timeLast;
         timeLast = timeNow;
 
