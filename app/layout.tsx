@@ -1,56 +1,63 @@
 'use client';
 
-import type {ReactNode, MouseEvent} from 'react';
+import type {ReactNode} from 'react';
 import '/styles/globals.css';
 
 function RootLayout({ children }: { children: ReactNode }) {
 
-    const toggleMenu = (e: MouseEvent<HTMLButtonElement>) => {
+    const toggleMenu = () => {
+        const button = document.getElementById('hamburger-button');
         const menu = document.getElementById('mobile-menu');
         menu?.classList.toggle('hidden');
         menu?.classList.toggle('flex');
+        button?.classList.toggle('toggle-btn');
     };
 
     return (
         <html className="sm:scroll-smooth" lang="en">
         <body className="min-h-screen bg-slate-50 dark:bg-black dark:text-white">
-        <div className="bg-teal-700 text-white sticky top-0 z-10">
-            <section className="max-w-4xl mx-auto p-4 flex justify-between items-center">
+        <div className="sticky top-0 z-10 bg-teal-700 text-white">
+            <section className="mx-auto flex max-w-4xl items-center justify-between p-4">
                 <h1 className="text-3xl font-medium">
                     <a href="#hero">🚀 Acme Rockets</a>
                 </h1>
                 <div>
-                    <button className="text-3xl md:hidden cursor-pointer" id="hamburger-button"
+                    <button className="relative h-8 w-8 cursor-pointer text-3xl md:hidden" id="hamburger-button"
                             onClick={toggleMenu}>
-                        &#9776;
+                        {/*&#9776;*/}
+                        <div
+                            className="bg-white w-8 h-1 rounded absolute top-4 -mt-0.5 transition-all duration-500 before:content-[''] before:bg-white before:w-8 before:h-1 before:rounded before:absolute before:-translate-x-4 before:-translate-y-3 before:transition-all before:duration-500 after:content-[''] after:bg-white after:w-8 after:h-1 after:rounded after:absolute after:-translate-x-4 after:translate-y-3 after:transition-all after:duration-500">
+
+                        </div>
                     </button>
-                    <nav aria-label="main" className="hidden md:block space-x-8 text xl">
+                    <nav aria-label="main" className="hidden space-x-8 text xl md:block">
                         <a className="hover:opacity-90" href="#rockets">Our Rockets</a>
                         <a className="hover:opacity-90" href="#testimonials">Testimonials</a>
                         <a className="hover:opacity-90" href="#contact">Contact Us</a>
                     </nav>
                 </div>
             </section>
-            <section className="absolute top-0 bg-black w-full text-5xl flex-col justify-center origin-top animate-open-menu hidden"
+            <section
+                className="absolute hidden w-full origin-top flex-col justify-center bg-black text-5xl top-68 animate-open-menu"
                 id="mobile-menu"
                 onClick={toggleMenu}>
-                <button className="text-8xl self-end px-6"  onClick={toggleMenu}>
-                    &times;
-                </button>
-                <nav aria-label="mobile" className="flex flex-col min-h-screen items-center py-8">
-                    <a className="w-full text-center py-6 hover:opacity-90" href="#hero">Home</a>
-                    <a className="w-full text-center py-6 hover:opacity-90" href="#rockets">Our Rockets</a>
-                    <a className="w-full text-center py-6 hover:opacity-90" href="#testimonials">Testimonials</a>
-                    <a className="w-full text-center py-6 hover:opacity-90" href="#contact">Contact Us</a>
-                    <a className="w-full text-center py-6 hover:opacity-90" href="#footer">legal</a>
+                {/*<button className="self-end px-6 text-8xl"  onClick={toggleMenu}>*/}
+                {/*    &times;*/}
+                {/*</button>*/}
+                <nav aria-label="mobile" className="flex min-h-screen flex-col items-center py-8">
+                    <a className="w-full py-6 text-center hover:opacity-90" href="#hero">Home</a>
+                    <a className="w-full py-6 text-center hover:opacity-90" href="#rockets">Our Rockets</a>
+                    <a className="w-full py-6 text-center hover:opacity-90" href="#testimonials">Testimonials</a>
+                    <a className="w-full py-6 text-center hover:opacity-90" href="#contact">Contact Us</a>
+                    <a className="w-full py-6 text-center hover:opacity-90" href="#footer">legal</a>
                 </nav>
             </section>
         </div>
-        <main className="max-w-4xl mx-auto">
+        <main className="mx-auto max-w-4xl">
             {children}
         </main>
-        <footer className="bg-teal-700 text-white text-xl" id="footer">
-            <section className="max-w-4xl mx-auto p-4 flex flex-col sm:flex-row sm:justify-between">
+        <footer className="bg-teal-700 text-xl text-white" id="footer">
+            <section className="mx-auto flex max-w-4xl flex-col p-4 sm:flex-row sm:justify-between">
                 <address>
                     <h2>Acme Rocket-Powered Products, Inc.</h2>
                     555 Astro Way<br/>
@@ -59,7 +66,7 @@ function RootLayout({ children }: { children: ReactNode }) {
                     Phone: <a href="tel:+15555555555">(555) 555-5555</a>
                 </address>
 
-                <nav aria-label="footer" className="hidden md:flex flex-col gap-2">
+                <nav aria-label="footer" className="hidden flex-col gap-2 md:flex">
                     <a className="hover:opacity-90" href="#rockets">Our Rockets</a>
                     <a className="hover:opacity-90" href="#testimonials">Testimonials</a>
                     <a className="hover:opacity-90" href="#comment">Leave A Comment</a>
