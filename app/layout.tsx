@@ -11,14 +11,13 @@ function RootLayout({ children }: { children: ReactNode }) {
                     <a href="#hero">🚀 Acme Rockets</a>
                 </h1>
                 <div>
-                    <button className="text-3xl sm:hidden focus:outline-none" id="mobile-open-button">
+                    <button className="text-3xl md:hidden cursor-pointer" id="hamburger-button">
                         &#9776;
                     </button>
-                    <nav aria-label="main" className="hidden sm:block space-x-8 text xl">
+                    <nav aria-label="main" className="hidden md:block space-x-8 text xl">
                         <a className="hover:opacity-90" href="#rockets">Our Rockets</a>
                         <a className="hover:opacity-90" href="#testimonials">Testimonials</a>
-                        <a className="hover:opacity-90" href="#comment">Leave A Comment</a>
-                        <a className="hover:opacity-90" href="#comments">Comments</a>
+                        <a className="hover:opacity-90" href="#contact">Contact Us</a>
                     </nav>
                 </div>
             </section>

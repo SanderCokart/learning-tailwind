@@ -1,23 +1,22 @@
 import Hero from 'app/Hero';
-import PocketBase from 'pocketbase';
 
-import type {MessagesRecord, BaseRecord} from '@/types/pocketbase-types';
-import {Collections} from '@/types/pocketbase-types';
-
-import Comment from './Comment';
-import CommentsList from './CommentsList';
+// import PocketBase from 'pocketbase';
+// import type {MessagesRecord, BaseRecord} from '@/types/pocketbase-types';
+// import {Collections} from '@/types/pocketbase-types';
+// import CommentsList from './CommentsList';
+import ContactUs from './ContactUs';
 import Rockets from './Rockets';
 import Testimonials from './Testimonials';
 
-async function getMessages() {
-    const db = new PocketBase('http://127.0.0.1:8090');
-    const data = await db.records.getList(Collections.Messages);
-
-    return data?.items as any[];
-}
+// async function getMessages() {
+//     const db = new PocketBase('http://127.0.0.1:8090');
+//     const data = await db.records.getList(Collections.Messages);
+//
+//     return data?.items as any[];
+// }
 
 export default async function HomePage() {
-    const messages = await getMessages() as (MessagesRecord & BaseRecord)[];
+    // const messages = await getMessages() as (MessagesRecord & BaseRecord)[];
 
     return (
         <>
@@ -33,11 +32,11 @@ export default async function HomePage() {
 
             <hr className="mx-auto bg-black dark:bg-white w-1/2"/>
 
-            <Comment/>
+            <ContactUs/>
 
-            <hr className="mx-auto bg-black dark:bg-white w-1/2"/>
+            {/*<hr className="mx-auto bg-black dark:bg-white w-1/2"/>*/}
 
-            <CommentsList messages={messages}/>
+            {/*<CommentsList messages={messages}/>*/}
         </>
     );
 }
