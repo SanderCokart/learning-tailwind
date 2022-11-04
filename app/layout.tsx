@@ -1,7 +1,16 @@
-import type {ReactNode} from 'react';
+'use client';
+
+import type {ReactNode, MouseEvent} from 'react';
 import '/styles/globals.css';
 
 function RootLayout({ children }: { children: ReactNode }) {
+
+    const toggleMenu = (e: MouseEvent<HTMLButtonElement>) => {
+        const menu = document.getElementById('mobile-menu');
+        menu?.classList.toggle('hidden');
+        menu?.classList.toggle('flex');
+    };
+
     return (
         <html className="sm:scroll-smooth" lang="en">
         <body className="min-h-screen bg-slate-50 dark:bg-black dark:text-white">
@@ -11,7 +20,8 @@ function RootLayout({ children }: { children: ReactNode }) {
                     <a href="#hero">🚀 Acme Rockets</a>
                 </h1>
                 <div>
-                    <button className="text-3xl md:hidden cursor-pointer" id="hamburger-button">
+                    <button className="text-3xl md:hidden cursor-pointer" id="hamburger-button"
+                            onClick={toggleMenu}>
                         &#9776;
                     </button>
                     <nav aria-label="main" className="hidden md:block space-x-8 text xl">
@@ -20,6 +30,20 @@ function RootLayout({ children }: { children: ReactNode }) {
                         <a className="hover:opacity-90" href="#contact">Contact Us</a>
                     </nav>
                 </div>
+            </section>
+            <section className="absolute top-0 bg-black w-full text-5xl flex-col justify-center origin-top animate-open-menu hidden"
+                id="mobile-menu"
+                onClick={toggleMenu}>
+                <button className="text-8xl self-end px-6"  onClick={toggleMenu}>
+                    &times;
+                </button>
+                <nav aria-label="mobile" className="flex flex-col min-h-screen items-center py-8">
+                    <a className="w-full text-center py-6 hover:opacity-90" href="#hero">Home</a>
+                    <a className="w-full text-center py-6 hover:opacity-90" href="#rockets">Our Rockets</a>
+                    <a className="w-full text-center py-6 hover:opacity-90" href="#testimonials">Testimonials</a>
+                    <a className="w-full text-center py-6 hover:opacity-90" href="#contact">Contact Us</a>
+                    <a className="w-full text-center py-6 hover:opacity-90" href="#footer">legal</a>
+                </nav>
             </section>
         </div>
         <main className="max-w-4xl mx-auto">
