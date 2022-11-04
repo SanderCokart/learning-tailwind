@@ -53,9 +53,7 @@ function RootLayout({ children }: { children: ReactNode }) {
                 </nav>
             </section>
         </div>
-        <main className="mx-auto max-w-4xl">
-            {children}
-        </main>
+        {children}
         <footer className="bg-teal-700 text-xl text-white" id="footer">
             <section className="mx-auto flex max-w-4xl flex-col p-4 sm:flex-row sm:justify-between">
                 <address>

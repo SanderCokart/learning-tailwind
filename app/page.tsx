@@ -4,6 +4,8 @@ import Hero from 'app/Hero';
 // import type {MessagesRecord, BaseRecord} from '@/types/pocketbase-types';
 // import {Collections} from '@/types/pocketbase-types';
 // import CommentsList from './CommentsList';
+import {Starfield} from 'app/Starfield';
+
 import ContactUs from './ContactUs';
 import Rockets from './Rockets';
 import Testimonials from './Testimonials';
@@ -20,20 +22,23 @@ export default async function HomePage() {
 
     return (
         <>
-            <Hero/>
+            <Starfield/>
+            <div className="mx-auto max-w-4xl relative z-0">
+                <Hero/>
 
-            <hr className="mx-auto bg-black dark:bg-white w-1/2"/>
+                <hr className="mx-auto bg-black dark:bg-white w-1/2"/>
 
-            <Rockets/>
+                <Rockets/>
 
-            <hr className="mx-auto bg-black dark:bg-white w-1/2"/>
+                <hr className="mx-auto bg-black dark:bg-white w-1/2"/>
 
-            <Testimonials/>
+                <Testimonials/>
 
-            <hr className="mx-auto bg-black dark:bg-white w-1/2"/>
+                <hr className="mx-auto bg-black dark:bg-white w-1/2"/>
 
-            <ContactUs/>
+                <ContactUs/>
 
+            </div>
             {/*<hr className="mx-auto bg-black dark:bg-white w-1/2"/>*/}
 
             {/*<CommentsList messages={messages}/>*/}
