@@ -87,6 +87,10 @@ function RootLayout({ children }: { children: ReactNode }) {
 
     return (
         <html className="sm:scroll-smooth" lang="en">
+        <head>
+            <meta content="width=device-width, initial-scale=1, minimum-scale=1" name="viewport"/>
+            <title>Acme Rockets</title>
+        </head>
         <body className="min-h-screen bg-slate-50 dark:bg-black dark:text-white">
         <div className="sticky top-0 z-10 bg-red-500 text-white">
             <DesktopNav onClick={toggleMenu}/>
